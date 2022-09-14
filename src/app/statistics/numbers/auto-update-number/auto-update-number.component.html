@@ -1,0 +1,5 @@
+<div (resized)="onResize($event)" class="number-content">
+  <span [ngStyle]="{'font-size.rem': preferredFontSize}">
+    {{displayValue || value}}
+  </span>
+</div>

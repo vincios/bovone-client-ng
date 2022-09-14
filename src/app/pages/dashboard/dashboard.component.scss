@@ -1,0 +1,270 @@
+app-root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow-x: hidden;
+}
+
+app-dashboard {
+  height: 80%;
+}
+//
+//mat-nav-list {
+//  min-width: 200px;
+//  width: 20%;
+//  border-right: 1px solid grey;
+//  overflow: auto;
+//}
+//
+//mat-nav-list .active, mat-nav-list .mat-list-item-focus.active:focus {
+//  background: #afddff;
+//}
+//
+//router-outlet + * {
+//  width: 100%;
+//  overflow: auto;
+//}
+//
+gridster-item div.button-holder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.options {
+  padding: 10px;
+  display: grid;
+}
+
+.options-header {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.source-code-button {
+  justify-self: end;
+}
+
+[draggable] {
+  user-select: none;
+  cursor: pointer;
+}
+
+//app-parent-dynamic, app-widget-a, app-widget-b, app-widget-c {
+//  display: flex;
+//  height: 100%;
+//  width: 100%;
+//  color: white;
+//  font-weight: bold;
+//  font-size: 24px;
+//  align-items: center;
+//  justify-content: center;
+//}
+//
+//code {
+//  background: lightgrey;
+//}
+//
+//app-widget-a {
+//  background: red;
+//}
+//
+//app-widget-b {
+//  background: blue;
+//}
+//
+//app-widget-c {
+//  background: lawngreen;
+//}
+//
+//
+///* You can add global styles to this file, and also import other style files */
+//
+//html,
+//body {
+//  height: 100vh;
+//  margin: 0;
+//  padding: 0;
+//}
+//
+//body {
+//  display: flex;
+//  flex-direction: column;
+//}
+//
+//blockquote {
+//  padding: 0 1em;
+//  color: rgba(0, 0, 0, 0.535);
+//  border-left: 0.25em solid rgba(0, 0, 0, 0.11);
+//}
+//
+//table {
+//  border-spacing: 0;
+//  border-collapse: collapse;
+//  margin-bottom: 16px;
+//
+//  th,
+//  td {
+//    padding: 6px 13px;
+//    border: 1px solid #ddd;
+//
+//    &[align='left'] {
+//      text-align: left;
+//    }
+//
+//    &[align='center'] {
+//      text-align: center;
+//    }
+//
+//    &[align='right'] {
+//      text-align: right;
+//    }
+//  }
+//
+//  tr:nth-child(2n) {
+//    background-color: rgba(0, 0, 0, 0.03);
+//  }
+//}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.overlay {
+  display: none;
+  width: 99.5%;
+  height: 99.5%;
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  z-index: -100;
+  flex-direction: row;
+  justify-content: center;
+  border-radius: 7px 7px 7px 7px;
+
+  &.show-overlay {
+    display: flex;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.17);
+  }
+
+  .overlay-content {
+    align-self: center;
+    //justify-content: center;
+    //align-content: center;
+    //align-items: center;
+    //text-align: center;
+
+    mat-icon {
+      font-size: 48px;
+      //color: $warn;
+    }
+  }
+
+}
+
+.dnd-dragged-el {
+  z-index: 100;
+  border: 1px dashed;
+}
+
+.dnd-drag-over {
+  border: 2px dashed black;
+}
+
+.gridster-container {
+  flex: 4 4 auto;
+  height: calc(100vh - 64px); // 64px = toolbar height
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+gridster {
+  background-color: transparent;
+  //height: calc(100vh - 64px); // 64px = toolbar height
+  height: 100%;
+}
+
+gridster-item {
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    height: calc(100% - 2px); // 2px for the card shadow
+    width: calc(100% - 2px); // 2px for the card shadow
+  }
+
+  &.gridster-item-moving {
+    //box-shadow: initial;
+    box-shadow: 0 10px 13px -6px rgba(0, 0, 0, 0.2), 0 20px 31px 3px rgba(0, 0, 0, 0.14), 0 8px 38px 7px rgba(0, 0, 0, 0.12);
+    z-index: 10!important;
+
+    .item {
+      height: 100%; // remove the 2px shadow since gridster-item-moving already add a shadow
+      width: 100%; // remove the 2px shadow since gridster-item-moving already add a shadow
+    }
+  }
+}
+
+.handle-se {
+  transform: translateY(-2px);
+}
+
+[mwlDraggable] {
+  z-index: 100;
+}
+
+.widget-list {
+  //flex: 1 1 auto;
+  flex-grow: 1;
+  padding: 16px;
+  //z-index: 1;
+}
+
+.example-box {
+  padding: 20px 10px;
+  border-bottom: solid 1px #ccc;
+  color: rgba(0, 0, 0, 0.87);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  cursor: move;
+  background: white;
+  font-size: 14px;
+  z-index: 999!important;
+}
+
+.add-widget-btn {
+  z-index: 100;
+  right: 20px;
+  bottom: 10px;
+  left: auto;
+  position: absolute;
+}
+
+
+@media screen and (max-width: 720px){
+  .widget-list {
+    display: none;
+  }
+}

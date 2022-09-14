@@ -1,0 +1,46 @@
+<mat-drawer-container class="dashboard-container">
+  <mat-drawer mode="side" position="end" #sidenav class="widget-list mat-elevation-z20"
+              (openedStart)="options.api.resize()" (closedStart)="options.api.resize()">
+    <div class="example-box" mwlDraggable (dragStart)="showOverlay(true)" (dragEnd)="showOverlay(false)">
+      <div>DRAG ME</div>
+    </div>
+    <div class="example-box" mwlDraggable (dragStart)="showOverlay(true)" (dragEnd)="showOverlay(false)">
+      DRAG ME
+    </div>
+  </mat-drawer>
+  <mat-drawer-content class="gridster-container">
+    <gridster mwlDroppable [options]="options">
+      <gridster-item #gi [item]="item" *ngFor="let item of dashboard"
+                     [ngClass]="{'mat-elevation-z4': gi.el.classList.contains('gridster-item-moving')}">
+        <div class="item">
+          <app-chart-card>
+            <mat-icon [ngStyle]="{color: '#ed3330', 'padding-right': '16px'}">info</mat-icon>
+            <p title>Title</p>
+            <!--        <p subtitle>Subtitle</p>-->
+            <app-simple-chart content *ngIf="item.widgetType === 'chart' && !item.auto"
+                              [type]="chatHoursType" [data]="chatHoursData" [options]="chatHoursOptions"></app-simple-chart>
+<!--            <app-simple-number content *ngIf="item.widgetType === 'number'"-->
+<!--                                    [conversionModels]="parseConversionModels(conversionModels) | async" data="2"></app-simple-number>-->
+            <app-auto-update-chart content *ngIf="item.widgetType === 'chart' && item.auto" type="line" [maxValues]="10"
+                                   [dataKeys]="['total_meter_worked']" labelKey="label"></app-auto-update-chart>
+            <app-auto-update-number content *ngIf="item.widgetType === 'number'" dataKey="status_cooling_pump" data="2">
+            </app-auto-update-number>
+            <div footer>
+              <p>Footer!</p>
+            </div>
+          </app-chart-card>
+        </div>
+      </gridster-item>
+    </gridster>
+    <div class="overlay" [ngClass]="{'show-overlay': showDndOverlay}" mwlDroppable (drop)="onDropData($event)"
+         dragOverClass="dnd-drag-over">
+      <div class="overlay-content" >
+        fesainfeiusjnfij
+      </div>
+    </div>
+    <button mat-mini-fab color="primary" class="add-widget-btn" (click)="sidenav.toggle()">
+      <mat-icon [@openCloseButton]="sidenav.opened ? 'close' : 'open'" aria-label="Add Row">add</mat-icon>
+    </button>
+  </mat-drawer-content>
+
+</mat-drawer-container>

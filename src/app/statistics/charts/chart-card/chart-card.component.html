@@ -1,0 +1,22 @@
+<mat-card>
+  <div class="drag-handle chart-card-header">
+    <div class="chart-card-icon">
+      <ng-content select="mat-icon"></ng-content>
+    </div>
+    <mat-card-title>
+      <ng-content select="[title]"></ng-content>
+    </mat-card-title>
+    <!--    <mat-card-subtitle>-->
+    <!--      <ng-content select="[subtitle]"></ng-content>-->
+    <!--    </mat-card-subtitle>-->
+  </div>
+  <mat-card-content class="chart-card-content">
+    <ng-content select="[content]"></ng-content>
+  </mat-card-content>
+  <div class="card-divider">
+    <mat-divider></mat-divider>
+  </div>
+  <mat-card-footer>
+    <ng-content select="[footer]"></ng-content>
+  </mat-card-footer>
+</mat-card>
